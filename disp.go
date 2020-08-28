@@ -45,12 +45,12 @@ func print_sequence(sequence []seqT) {
         } else if seq.varnum < 0 {
             continue
         } else if seq.l == seq.r {
-            pstr = fmt.Sprintf("t%d = sqr(t%d)", seq.varnum, sequence[seq.l].varnum)
+            pstr = fmt.Sprintf("t%d := mulmod(t%d, t%d, n)", seq.varnum, sequence[seq.l].varnum, sequence[seq.l].varnum)
         } else {
-            pstr = fmt.Sprintf("t%d = t%d * t%d", seq.varnum, sequence[seq.l].varnum, sequence[seq.r].varnum)
+            pstr = fmt.Sprintf("t%d := mulmod(t%d, t%d, n)", seq.varnum, sequence[seq.l].varnum, sequence[seq.r].varnum)
         }
 
-        fmt.Fprintf(&buffer, "%*s # %4d : %v\n", -eqlen, pstr, i, seq.val)
+        fmt.Fprintf(&buffer, "%*s\n", -eqlen, pstr)
         i++
     }
 

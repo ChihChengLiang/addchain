@@ -93,7 +93,7 @@ func main() {
 
     // search in parallel
     const swin = 2
-    const ewin = 11
+    const ewin = 4
     var ch = make(chan runT, ewin - swin + 2)
     var wg = sync.WaitGroup{}
 
